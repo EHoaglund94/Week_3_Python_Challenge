@@ -71,6 +71,11 @@ for line in summary_data:
 
 
 
+#output to text file
+output_text = open('PyPoll_outputs.txt', 'w')
+with open('PyPoll_outputs.txt', 'w') as txt_file:
+    for line in summary_data:
+        txt_file.write(line + '\n')
 
 
 

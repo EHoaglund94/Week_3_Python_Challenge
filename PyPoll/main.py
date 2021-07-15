@@ -1,6 +1,8 @@
+#Import modules
 import os
 import csv
 
+#File path for election data
 poll_csv = os.path.join('Resources','election_data.csv')
 
 #Set variables
@@ -10,9 +12,11 @@ candidate_votes = {}
 winner_vote = 0
 
 
-
+#Read CSV file
 with open (poll_csv, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
+    
+    #Store and skip header row
     header = next(csvfile) 
 
 
@@ -65,13 +69,14 @@ line10 = (f'Winner: {winner}')
 line11 = '-' *25
 summary_data.extend([line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11])
 
-#print to terminal
+
+#Print results to terminal
 for line in summary_data:
     print(line)
 
 
 
-#output to text file
+#Export results to text file
 output_text = open('PyPoll_outputs.txt', 'w')
 with open('PyPoll_outputs.txt', 'w') as txt_file:
     for line in summary_data:

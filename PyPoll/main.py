@@ -37,6 +37,43 @@ for item in candidate_percentage.items():
         winner_vote = item[1]
         winner = item[0]
 
+#Put Summary Data into a list
+summary_data = []
+line1 = 'Election Results'
+line2 = '-' *25
+line3 = (f'Total Votes: {total_votes}')
+line4 = '-' *25
+
+line5 = "{}: ".format(candidates[0]) + \
+        '{:.1%} '.format(candidate_percentage[candidates[0]]) + \
+        '({}) '.format(candidate_votes[candidates[0]])
+
+line6 = "{}: ".format(candidates[1]) + \
+        '{:.1%} '.format(candidate_percentage[candidates[1]]) + \
+        '({}) '.format(candidate_votes[candidates[1]])
+
+line7 = "{}: ".format(candidates[2]) + \
+        '{:.1%} '.format(candidate_percentage[candidates[2]]) + \
+        '({}) '.format(candidate_votes[candidates[2]])
+
+line8=  "{}: ".format(candidates[3]) + \
+        '{:.1%} '.format(candidate_percentage[candidates[3]]) + \
+        '({}) '.format(candidate_votes[candidates[3]])
+
+line9 = '-' *25
+line10 = (f'Winner: {winner}')
+line11 = '-' *25
+summary_data.extend([line1,line2,line3,line4,line5,line6,line7,line8,line9,line10,line11])
+
+#print to terminal
+for line in summary_data:
+    print(line)
+
+
+
+
+
+
 
 
 

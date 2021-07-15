@@ -14,11 +14,16 @@ change_min = [ '', 0]
 
 
 
-
 with open (bank_csv, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     header = next(csvfile)
-
+    #Read through rows in CSV file
+    for row in csvreader:
+        month_year = row[0]
+        revenue = float(row[1])
+        month_list.append(month_year)
+        revenue_list.append(revenue)
+        total_revenue += revenue
 
 
    

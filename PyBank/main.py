@@ -1,5 +1,6 @@
 import os
 import csv
+from typing import TYPE_CHECKING
 
 #Path to collect data form the Resources folder
 bank_csv = os.path.join('Resources', 'budget_data.csv')
@@ -35,8 +36,15 @@ total_months = len(month_list)
 for i in range(1,total_months): 
     month_change = revenue_list[i] - revenue_list[i-1]
     total_change += month_change
-
+    if month_change > change_max[1] :
+        change_max = [month_list[i], month_change]
+    if month_change < change_min[1] :
+        change_min = [month_list[i], month_change]
 
 average_change = total_change / (total_months-1 )
 print (average_change)
 print(total_months)
+print(change_max)
+print(change_min)
+
+

@@ -42,9 +42,22 @@ for i in range(1,total_months):
         change_min = [month_list[i], month_change]
 
 average_change = total_change / (total_months-1 )
-print (average_change)
-print(total_months)
-print(change_max)
-print(change_min)
+
+
+#Put Summary Data into a list
+summary_data = []
+line1 = 'Financial Analysis'
+line2 = '-' * 30
+line3 = (f'Total Months: {total_months}')
+line4 = (f'Total: $ {round(total_revenue)}')
+line5 = (f'Average Change: ${round(average_change,2)}')
+line6 = (f'Greatest Increase in Profits: {change_max[0]}  ({change_max[1]})')
+line7 = (f'Greatest Decrease in Profits:  {change_min[0]}  ({change_min[1]})')
+summary_data.extend([line1,line2,line3,line4,line5,line6,line7])
+
+for line in summary_data:
+    print(line)
+
+
 
 

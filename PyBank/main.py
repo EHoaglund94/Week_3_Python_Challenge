@@ -1,3 +1,4 @@
+#Import modules
 import os
 import csv
 
@@ -5,7 +6,7 @@ import csv
 #Path to collect data form the Resources folder
 bank_csv = os.path.join('Resources', 'budget_data.csv')
 
-#Variables
+#Set Variables
 month_list = []
 revenue_list = []
 total_revenue = 0
@@ -14,7 +15,7 @@ change_max = [ '', 0]
 change_min = [ '', 0]
 
 
-#read CSV file
+#Read CSV file
 with open (bank_csv, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     header = next(csvfile)
@@ -30,10 +31,10 @@ with open (bank_csv, 'r') as csvfile:
         revenue_list.append(revenue)
         total_revenue += revenue
 
-#loop through lists to find Financial Analysis outputs
+#Calculation to find total months
 total_months = len(month_list)
 
-
+#Loop through lists to find Financial Analysis outputs
 for i in range(1,total_months): 
     month_change = revenue_list[i] - revenue_list[i-1]
     total_change += month_change
@@ -56,13 +57,13 @@ line6 = (f'Greatest Increase in Profits: {change_max[0]}  ({change_max[1]})')
 line7 = (f'Greatest Decrease in Profits:  {change_min[0]}  ({change_min[1]})')
 summary_data.extend([line1,line2,line3,line4,line5,line6,line7])
 
-#Output in terminal
+#Print results to terminal
 for line in summary_data:
     print(line)
 
 
 
-#output to text file
+#Export results to text file
 output_text = open('PyBank_outputs.txt', 'w')
 with open('PyBank_outputs.txt', 'w') as txt_file:
     for line in summary_data:
